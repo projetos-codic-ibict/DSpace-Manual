@@ -390,9 +390,7 @@
 		\vspace*{1.2\baselineskip}
 	EMAIL: leonardcampelo@ibict.br} \\
 	\vfill
-If you come across any problems, see section \ref{sec:resources} for possible\\ \vspace{1mm}
-solutions or contact me at \url{armindubert19@gmail.com}\\ \vspace{1mm}
-Happy \LaTeX-ing!
+
 \end{titlepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
@@ -816,20 +814,36 @@ tar -cvzf bkp_solr_DDMMAA.tar.gz data
 
 \textbf{Base de dados}
 \singlespacing
-\textbullet \hspace{6pt} Remova e crie novamente a base de dados da nova instalação. Isso fornecerá uma base de dados vazia:
 
-\begin{minted}{bash}
-dropdb dspace6x
-\end{minted}
+A atualização do DSpace precisa da criação de um banco de dados novo, não é aconselhado utilizar o banco da versão anterior. Dessa forma, é necessário criar um novo banco de dados, \textbf{dspace6x}(nome ilustrativo)
+
+%\textbullet \hspace{6pt} Remova e crie novamente a base de dados da nova instalação. Isso fornecerá uma base de dados vazia:
+
+%\begin{minted}{bash}
+%dropdb dspace6x
+%\end{minted}
 
 \begin{minted}{bash}
 createdb -E UNICODE dspace6x
+
+createdb --username=postgres --owner=dspace --encoding=UNICODE dspace6x
+
+psql --username=postgres dspace6x -c "CREATE EXTENSION pgcrypto;"
 \end{minted}
 
-\textbullet \hspace{6pt} Para que possamos realizar o restore, vá até o local onde está o arquivo backup do banco e execute o comando:
+Acesse a pasta com o backup do banco de dados, \textbf{bkp $\_$ dspace4x $\_$ DDMMAA.sql}, e execute o comando de restauração para o bando \textbf{dspace6x}.
 
 \begin{minted}{bash}
 psql -d dspace6x -f bkp_dspace4x_DDMMAA.sql
+\end{minted}
+
+Finalizado a restauração do banco, acesse a pasta de binários do DSpace 6.3,
+\begin{minted}{bash}
+cd /dspace-base/bin
+\end{minted}
+e execute o comando,
+\begin{minted}{bash}
+./dspace migrate database
 \end{minted}
 
 \newpage
