@@ -26,7 +26,7 @@
 	\usepackage{geometry}
 	\usepackage{marginnote}
 	\usepackage{setspace}
-	\usepackage{subfigure}
+	%\usepackage{subfigure}
 	\usepackage{minted}
 	\tcbuselibrary{theorems}
 	\tcbuselibrary{breakable, skins}
@@ -409,6 +409,629 @@ The entirety of the contents within this file, and folder, are free for public u
 \section{Introdução}
 \newpage
     \subsection{O que é o DSpace?}
+        Este manual oferece instruções sobre o uso do software DSpace. Além da instalação e configurações básicas.
+        O DSpace é um dos softwares mais utilizados mundialmente para construção e gerenciamento de repositórios digitais e que apesar de ser uma ferramenta simples dispõe de muitos recursos.
+        \singlespacing
+        A utilização crescente do software para repositórios pelas instituições brasileiras e as constantes atualizações e mudanças ocorridas foram fatores que impulsionaram a criação deste manual. 
+         \singlespacing
+         Utilizando a versão 6.3 do DSpace, este documento foi estruturado contendo as principais funcionalidades necessárias para a gestão de um repositório digital, focando principalmente repositórios institucionais. Esclarece ainda sobre temas correlatos que podem auxiliar os gestores na qualidade de dados de seus repositórios como: as diretrizes de metadados e a ferramenta para correção de dado, OpenRefine.
+        \singlespacing
+        O manual está composto por seções explicando o funcionamento do DSpace, a estrutura em que as informações são organizadas, as principais ferramentas disponíveis para os administradores dos repositórios, como realizar o depósito de um documento, as tarefas que envolvem o fluxo de depósito, breves explicações sobre o formulário de entrada, informações sobre as principais diretrizes de metadados e esclarecimentos sobre o uso da ferramenta Google OpenRefine.
+\newpage
+        \singlespacing
+\section{Como funciona o DSpace}
+\newpage
+    \subsection{Visão geral:}
+        \singlespacing \textbullet \hspace{6pt} Crie as estruturas de armazenamento: comunidades, subcomunidades e coleções;
+        
+        \textbullet \hspace{6pt} Defina as políticas das comunidades, subcomunidades e coleções: como será o fluxo de depósito; quem poderá depositar em cada coleção; configurações de acesso – aberto, restrito ou embargado.
+
+        \textbullet \hspace{6pt} Atribua permissões aos usuários do repositório: defina quem poderá fazer depósitos; quem poderá editar e excluir depósitos; quem fará a avaliação e revisão dos depósitos; quais serão os administradores;
+
+        \subsection{Sobre as permissões}
+        O gerenciamento do DSpace é realizado por meio de diferentes permissões de acesso. Isso significa que os usuários cadastrados no sistema podem ter funções diferentes e, por isso, têm acesso a diferentes funcionalidades e ferramentas do sistema. O usuário administrador é o único que pode realizar todas as ações no sistema, pode também delegar funções e permissões para outros usuários, inclusive dar permissões de administrador para outros usuários.
+        
+        \subsection{Sobre as políticas}
+        É possível criar políticas para cada elemento integrante do repositório:
+        
+            \centerline{Comunidade}      
+            \centerline{Subcomunidade}      
+            \centerline{Coleção}      
+            \centerline{Item}      
+            \centerline{Bitstream}
+        \singlespacing
+        A política aplicada ao item será sempre aquela atribuída ao elemento de menor hierarquia. Por exemplo, uma determinada coleção possui uma política de tornar todos os seus itens disponíveis ao público geral (permissão READ ao grupo Anonymous). Contudo, um item pertencente a esta coleção pode ter uma política que restrinja o acesso a ele, mesmo que a coleção da qual faz parte (hierarquia superior) tenha uma política diferente. Da mesma forma, o item pode ser composto de vários arquivos (bitstreams) e restringir o acesso a apenas um ou alguns desses arquivos, já que é possível atribuir políticas específicas ao bitstream.
+        \singlespacing
+        \textbf{\underline{NOTA}}: \emph{Bitstreams}  são os arquivos de computadores comuns. Por exemplo, o arquivo PDF de uma tese é um \emph{bitstream} no contexto dos repositórios.
+        \singlespacing
+        \textbf{\underline{IMPORTANTE}}: se você alterar a política de uma coleção que já possui itens, a nova política só valerá para os itens depositados depois da mudança. Os itens existentes permanecerão com as políticas antigas, ou seja, não serão atualizados automaticamente. Para atualizá-los, siga os procedimentos descritos em 5.3.4 Ferramenta avançada de administração de políticas.
+\newpage
+        Visualização das comunidades e coleções:
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura1.png}
+                \caption{Visualização das comunidades e coleções}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+\section{Logar no repositório}
+\newpage
+    Para fazer o login no sistema é necessário ser um usuário registrado e ter uma senha de acesso. Para se registrar no sistema, siga os passos abaixo (1-6). Caso você já seja cadastrado no sistema pule para o passo 7
+    \subsection{Registrar novo usuário no repositório}
+    
+    Passo 1: Na barra superior, clique no menu “Entrar em:” e acesse <Meu espaço>.
+     \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura2.png}
+                \caption{Meu espaço}
+            \label{Rotulo}
+        \end{figure}   
+        
+       Passo 2 : Clique em <Usuário novo? Clique aqui para se registrar>. 
+       
+       \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura3.png}
+                \caption{Figura 3 - Cadastro de novo usuário}
+            \label{Rotulo}
+        \end{figure}  
+        
+    
+        Passo 3: Informe seu endereço de e-mail que será cadastrado no sistema e clique em <Registrar>. Note que o endereço de e-mail cadastrado será utilizado para o envio de mensagens do sistema para você.
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura4.png}
+                \caption{Registro de usuário}
+            \label{Rotulo}
+        \end{figure}
+\newpage        
+        Passo 4: Após informar o endereço de e-mail e clicar em registrar, deverá aparecer uma mensagem informando que seu e-mail foi registrado e que você receberá uma mensagem no e-mail cadastrado. Caso isto não aconteça repita o passo três.
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura5.png}
+                \caption{Confirmação de registro}
+            \label{Rotulo}
+        \end{figure}
+        
+        Passo 5: Abra a mensagem que você recebeu na conta de e-mail registrada e clique no link que foi enviado.
+        \singlespacing
+        Passo 6: Ao clicar no link, uma nova página do repositório será aberta. Preencha as informações solicitadas e clique em <Complete o registro>. É obrigatório o preenchimento do “Primeiro nome” e do “Último nome”. 
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.5]{figura/Figura6.png}
+                \caption{Confirmação de registro}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+        \subsection{Logar no repositório a partir de uma conta já existente}
+        
+        Passo 7: Na barra superior, clique no menu “Entrar em:” e acesse <Meu espaço>.
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura7.png}
+                \caption{Meu espaço}
+            \label{Rotulo}
+        \end{figure}
+        
+        Passo 8: Informe o endereço de e-mail cadastrado no repositório, a senha de acesso e clique em <Entrar>.
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura8.png}
+                \caption{Entrar no repositório}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+        Passo 9: Acesso à “Meu espaço”. Após o login, você será direcionado a página <Meu espaço>, que apresenta as opções de iniciar um novo depósito, visualizar depósitos aceitos ou ver as tarefas pendentes:
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura9.png}
+                \caption{Acesso à página “Meu espaço”}
+            \label{Rotulo}
+        \end{figure}
+        
+        
+\newpage        
+\section{Criar comunidades, subcomunidades e coleções}
+\newpage
+
+    Para iniciar o depósito de arquivos no repositório é recomendável que sejam criadas as
+    estruturas de \underline{comunidades}, \underline{subcomunidades} e \underline{coleções}. 
+    \singlespacing
+    A criação destas três estruturas não é obrigatória. É possível criar uma única comunidade e depositar todos os arquivos na mesma comunidade. No entanto, a estrutura de comunidades, subcomunidades e coleções possui a funcionalidade de organizar o conteúdo dentro do repositório, permitindo assim melhor navegabilidade e atribuição de políticas e permissões diferenciadas segundo necessidades determinadas. Um exemplo de organização em comunidades, subcomunidades e coleções é apresentado a seguir:
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Comunidades.png}
+            \label{Rotulo}
+        \end{figure}
+    
+        \subsection{Criação de comunidade}
+        
+        Passo 1: Na barra superior, clique no menu “Navegar” e acesse <Comunidades e coleções>. 
+        
+        \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura10.png}
+                \caption{Comunidades e coleções}
+            \label{Rotulo}
+        \end{figure}
+    
+\newpage
+     Passo 2: Em ferramenta do administrador, clique em "Criar comunidades". 
+     
+     \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura11.png}
+                \caption{Como criar comunidades}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 3: Descreva a comunidade que será criada nos campos adequados e clique em <Criar>. Note que apenas o campo “Nome” é obrigatório, no entanto o preenchimento dos outros campos pode ser importante para prestar informações para os gestores que alimentarão a comunidade e para os usuários finais.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.9]{figura/Figura12.png}
+                \caption{Criar comunidade}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+    Para saber mais sobre o preenchimento dos campos, siga as orientações abaixo:
+    \singlespacing
+    \textbullet \hspace{6pt} \textbf{Nome:} informe o nome que será dado à comunidade. Exemplo: Produção científica.
+    \singlespacing
+    \textbullet \hspace{6pt} \textbf{Texto introdutório (HTML):} insira um texto sobre a comunidade. Permite o uso de tags html que alteram a apresentação do texto. Exemplo: <p>Inclui artigos de periódicos, livros, capítulos de livros e trabalhos de eventos <b> produzidos na universidade </b> e/ou por autores da universidade.</p>
+    \singlespacing
+    \textbullet \hspace{6pt} \textbf{Texto sobre direitos autorais:} insira um texto sobre os direitos autorais que serão estabelecidos para os documentos da comunidade.
+    \singlespacing
+    \textbullet \hspace{6pt} \textbf{Texto da barra lateral:}  insira outro texto que queira para descrever a comunidade que aparecerá na barra lateral da página da comunidade.
+    \singlespacing
+    Passo 4: Atribuir um logotipo à comunidade. Ao criar uma comunidade é possível ainda relacioná-la ao seu logotipo, caso ela tenha uma imagem representativa. Para o uso do logo pela comunidade clique em <Carregar um logotipo>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura13.png}
+                \caption{Carregar logotipo}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 5: Clique em <Escolher arquivo> para selecionar uma imagem armazenada em seu computador. 
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura14.png}
+                \caption{Carregar logotipo}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+    Passo 6: Selecione a imagem navegando pelas pastas de seu computador e clique em <Carregar>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura15.png}
+                \caption{Upload do arquivo}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 7: Ao carregar o logotipo, a imagem poderá ser visualizada na página de gerenciamento da comunidade. Nela você poderá alterar a imagem carregada por outra, clicando em <Carregar novo logotipo> ou Excluir a imagem carregada, clicando em <Deletar (logotipo)>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura16.png}
+                \caption{Editar comunidade}
+            \label{Rotulo}
+        \end{figure}
+        
+    \subsection{Editar comunidade}
+    
+    Passo 1: Para editar alguma configuração da comunidade, entre na página da comunidade e clique em <Editar>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura17.png}
+                \caption{Editar configuração da comunidade}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 2: A página de edição assemelha-se com a imagem abaixo. Além de poder modificar a descrição da comunidade, você poderá:
+    \singlespacing
+    Excluir a comunidade, clicando em “Deletar esta comunidade”;
+    Selecionar, mudar ou excluir os usuários administradores dessa comunidade;
+    Estabelecer e editar políticas para a comunidade;
+    Acessar as ferramentas de curadoria da comunidade.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura18.png}
+                \caption{Editar comunidade}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+    \subsection{Estabelecimento de políticas para as comunidades}
+
+    Para cada comunidade criada também é permitida a atribuição de grupos de usuários e políticas específicas para o seu gerenciamento.
+    \singlespacing
+    Passo 1: Acesse a página de edição da comunidade. Caminho:
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/MenuComunidadesColecoes.png}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 2: Clique em <Criar> para estabelecer um grupo de usuários como Administradores da comunidade.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura19.png}
+                \caption{Criar grupo de administradores da comunidade}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 3: Para selecionar usuários específicos clique em <Selecionar usuários>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura20.png}
+                \caption{Selecionar usuários}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+
+    Passo 4: Uma lista com todos os usuários já cadastrados no repositório será aberta. Selecione os
+    usuários que receberão as permissões de administrador da comunidade e clique em <Adicionar>
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.6]{figura/Figura21.png}
+                \caption{Selecionar administradores}
+            \label{Rotulo}
+        \end{figure}
+    
+    \singlespacing
+    Note que é possível navegar pela lista ou realizar uma busca pelo nome dos usuários cadastrados no campo “Termo de busca”.
+    \singlespacing
+    Passo 5: Após selecionados os usuários, estes deverão aparecer na caixa “Membros usuários”. Para finalizar esta ação clique em <Atualizar grupo>.
+    \singlespacing
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura22.png}
+                \caption{Atualizar grupo}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+    
+    Passo 6: Caso queira retirar algum usuário da lista “Membros usuários” da comunidade, selecione o usuário e clique em <Excluir selecionado>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura23.png}
+                \caption{Excluir membro do grupo}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 7: O mesmo procedimento para a atribuição de usuários pode ser feito para grupo de usuários. Para tanto, clique em <Selecionar grupos>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura24.png}
+                \caption{Grupo de usuários}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+    Passo 8: Uma lista com todos os grupos criados será aberta em uma nova janela. Selecione os grupos que receberão as permissões de administrador da comunidade e clique em <Adicionar>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura25.png}
+                \caption{Permissões aos grupos}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 9: Depois de selecionado(s) o(s) grupo(s), este(s) deverão aparecer na caixa “Membros do grupo”. Para finalizar esta ação clique em <Atualizar grupo>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura26.png}
+                \caption{Confirmar membros do grupo}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+    Passo 10: Caso queira retirar algum grupo da lista “Membros do grupo” da comunidade, selecione o grupo e clique em <Excluir selecionado>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura27.png}
+                \caption{Excluir membros do grupo}
+            \label{Rotulo}
+        \end{figure}
+        
+    Passo 11: Concluída esta etapa, volte para a comunidade para estabelecer suas políticas de funcionamento. Dentro da página <Editar comunidade>, o estabelecimento de políticas de funcionamento será feito na seção “Autorizações da comunidade”, clicando em <Editar>
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura28.png}
+                \caption{Estabelecer políticas de funcionamento da comunidade}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+        
+    Passo 12: Para estabelecer uma política diferente da criada automaticamente para a coleção clique em <Adicionar nova política>.
+    \singlespacing
+    A política criada automaticamente para todas as coleções consiste em permissões de administração do sistema para os usuários pertencentes ao grupo administrador e permissões de navegação e leitura dos documentos depositados na coleção por todos os usuários (Anonymous), exceto dos itens embargados e restritos.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura29.png}
+                \caption{Estabelecer políticas de funcionamento da comunidade}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 13: Selecione o grupo de usuários, a permissão que lhe será dada e clique em <Salvar>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura30.png}
+                \caption{Editar política por comunidade}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+    Informações sobre as permissões:\\
+    READ – permissão de visualização/leitura dos registros; \\
+    WRITE – permissão de edição dos itens da comunidade;
+    ADD – permissão para adicionar/depositar itens dentro da comunidade;
+    REMOVE – permissão para remover/excluir itens da comunidade;
+    ADMIN – permissão de administrador da comunidade (possui todas as permissões).
+    
+  \subsection{Criação de subcomunidade}  
+  
+  Passo 1: Para criar uma subcomunidade, entre em uma comunidade e clique em <Criar subcomunidade>, disponível na caixa de “Ferramentas do administrador”.
+  
+  \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura31.png}
+                \caption{Criar subcomunidade}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 2: O processo de criação da subcomunidade é idêntico ao da comunidade. Para acompanhar passo a passo, volte aos itens 3 a 7 da seção 4.1 Criação de comunidade. O processo de estabelecimento de políticas para subcomunidades também é o mesmo das comunidades. A diferença é que você deve acessar a subcomunidade a ser alterada e acessar a respectiva página de edição.
+    
+    \subsection{Criação de subcomunidade} 
+    
+    Passo 1: Para editar uma subcomunidade, entre em sua página e clique em <Editar> na caixa de “Ferramentas do administrador”.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura32.png}
+                \caption{Criar subcomunidade}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage  
+    \subsection{Criação de coleção}
+    
+    Passo 1: Para criar uma coleção, entre em uma comunidade ou subcomunidade e clique em <Criar coleção>, nas “Ferramentas do administrador”.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura33.png}
+                \caption{Criar coleção}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+    Passo 2: Descreva a coleção selecionando as características que lhe serão atribuídas. Para selecionar uma característica, basta clicar no quadrado ao lado da frase. Ao finalizar esta fase clique em <Próximo> para continuar o processo de criação da coleção.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura34.png}
+                \caption{Descrição da coleção}
+            \label{Rotulo}
+        \end{figure}
+        
+    \textbf{\underline{NOTA}}: Essas configurações podem ser editadas posteriormente. 
+    
+    \singlespacing
+    Essas opções formam um fluxo de depósito (workflow) no repositório. Isso significa que elas incluem ou excluem etapas no processo de depósito, que podem ser atribuídas a pessoas diferentes, com permissões diferentes.
+    \singlespacing
+    
+    \textbf{Novos itens estão disponíveis}: os itens inseridos nessa coleção poderão ser visualizados (READ) por usuários anônimos (grupo: Anonymous), ou seja, o padrão para a coleção é ter seus documentos disponíveis ao público, com exceção dos itens restritos e embargados. Se esta opção não estiver marcada, será necessário definir os usuários específicos (ou grupos de usuários) que terão acesso aos itens dessa coleção.
+    
+    \singlespacing
+    
+    \textbf{Alguns usuários poderão depositar nesta coleção}: você deverá selecionar quais usuários poderão fazer depósitos nessa determinada coleção. Se esta opção não for marcada ou se nenhum usuário for selecionado, apenas usuários com perfil de administrador poderão realizar o depósito
+    
+    \singlespacing
+    
+    \textbf{Será incluído um passo aceitar/rejeitar durante o preenchimento dos itens}: inclui a etapa de avaliação no processo de depósito. Após os usuários depositantes realizarem a submissão de um item, ele não ficará automaticamente disponível no repositório. É preciso que o administrador ou outro usuário/grupo determinado aprove o depósito. Quando esta opção é marcada, é preciso definir os usuários ou grupos responsáveis por aprovar ou rejeitar um depósito. Esses usuários terão acesso ao registro feito pelo depositante e poderão visualizar os metadados preenchidos. Terão a opção de aprovar o depósito (enviando-o para a próxima etapa do fluxo, se houver, ou tornando-o disponível) ou rejeitar o depósito (envia mensagem ao depositante sobre motivo da não aprovação).
+    
+    \singlespacing
+    
+    \textbf{Será incluído um passo aceitar/rejeitar/editar metadados durante o preenchimento dos itens}: funciona da mesma maneira que a opção anterior, mas além do usuário responsável pela revisão poder “aprovar” e “rejeitar” um depósito, ele poderá também alterar os seus metadados. Se houver erros a serem corrigidos no depósito, o próprio revisor poderá consertá-los, em vez de solicitar que o depositante os conserte.
+    
+\newpage
+    
+    \textbf{Será incluído um passo editar metadados durante o preenchimento dos itens}: novamente, tem o mesmo funcionamento das opções anteriores. É preciso selecionar um usuário ou grupo responsável por revisar os depósitos realizados na coleção. Esses usuários terão a opção de alterar os metadados desse depósito. Após revisar e editar os metadados desejados, os responsáveis podem completar e disponibilizar o depósito, ou seja, tornar o registro disponível para o público.
+    
+    \singlespacing
+    
+    \textbf{Esta coleção terá administradores}: caso deseje selecionar usuários específicos para administrarem uma determinada coleção, marque essa opção. Esta opção pode ser usada, por exemplo, para dar autonomia para cada campus da universidade ou para cada faculdade/instituto gerenciar a sua coleção.
+    
+    \singlespacing
+    
+    \textbf{Novos depósitos terão alguns metadados previamente preenchidos com respostas padrão}: você pode determinar que certos metadados de uma coleção específica sejam preenchidos sempre com os mesmos valores. Por exemplo, em uma coleção que só receberá artigos científicos, você pode pré-determinar o metadado que registra o tipo de documento como “artigo de periódico” para todos os itens dessa coleção.
+    
+    \singlespacing
+    
+    A configuração do fluxo de depósito é explicada no tópico 3.3.2 Estabelecimento de políticas e fluxo de depósito da coleção. 
+    
+    \singlespacing
+    
+    Passo 3: Preencha os campos que julgar necessários para descrever a coleção e clique em <Próximo>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura35.png}
+                \caption{Descrever a coleção}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+
+    \singlespacing 
+     
+    \textbullet \hspace{6pt} \textbf{Nome}: informe o nome que será dado à coleção. Exemplo: Ciências exatas e da terra.
+     
+    \singlespacing
+     
+    \textbullet \hspace{6pt} \textbf{Descrição curta}: descreva a coleção. Exemplo: Artigos dos cursos de Matemática, Probabilidade e Estatística, Ciência da Computação, Astronomia, Física, Química, Geociências.
+    
+    \singlespacing
+     
+    \textbullet \hspace{6pt} \textbf{Texto introdutório (HTML)}: insira um texto sobre a coleção. Permite o uso de tags html que alteram a apresentação do texto. Exemplo: <p><b> Coleção de artigos 34 publicados por alunos e docentes dos cursos de Matemática, Probabilidade e Estatística, Ciência da Computação, Astronomia, Física, Química, Geociências. </b> </p>
+    
+    \singlespacing
+     
+    \textbullet \hspace{6pt} \textbf{Texto de copyright}: utilizado para informar os usuários sobre os direitos do autor. É um campo meramente informativo, implica num aviso, estando em conformidade com a política de acesso e de preservação da instituição mantenedora do repositório. Pode ser utilizado para explicar a restrição em coleções de acesso controlado, por exemplo.
+    
+    \singlespacing
+     
+    \textbullet \hspace{6pt} \textbf{Texto da barra lateral}: insira outro texto que queira para descrever a comunidade que aparecerá na barra lateral da página da comunidade.
+    
+    \singlespacing
+     
+    \textbullet \hspace{6pt} \textbf{Proveniência}: não aparece na página da coleção. Esse campo pode ser utilizado para inserir outras informações relevantes à coleção, sendo que apenas o administrador terá acesso a essas informações no processo de edição da coleção. É utilizado para indicar a origem dos documentos depositados em determinada coleção.
+    
+    Passo 4: Se anteriormente você marcou a opção “Alguns usuários poderão depositar nesta coleção”, o próximo passo é a atribuir autorização para o depósito de documentos na coleção, ou seja, selecionar os usuários que poderão adicionar itens a essa coleção.
+    
+    Clique em <Selecionar usuários> para selecionar usuários individualmente ou <Selecionar grupos> para selecionar grupos de usuários previamente estabelecidos. Após a seleção clique em <Próximo>.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.8]{figura/Figura36.png}
+                \caption{Permissões de depósito na coleção}
+            \label{Rotulo}
+        \end{figure}
+
+\newpage
+
+    Passo 5: Se anteriormente você marcou a opção “Esta coleção terá administradores”, o próximo passo é selecionar os usuários ou grupo de usuários que terão permissão de administrador da coleção. Após selecioná-los, clique em <Próximo>
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura37.png}
+                \caption{Permissões de administrador da coleção}
+            \label{Rotulo}
+        \end{figure}
+    
+    Passo 6: Se anteriormente você marcou a opção “Novos depósitos terão alguns metadados previamente preenchidos com respostas padrão”, o próximo passo é configurar os campos que terão valores pré-definidos dentro da coleção.
+    
+    \singlespacing
+    
+    Escolha o metadado nas caixas de seleção. Insira o valor do campo, ou seja, como ele será preenchido, e a sigla do idioma, de acordo com o padrão adotado. A seguir, clique em Próximo.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.7]{figura/Figura38.png}
+                \caption{Configurar metadados pré-definidos}
+            \label{Rotulo}
+        \end{figure}
+        
+\newpage
+
+    Passo 7: Finalizada esta etapa, a coleção está criada. A próxima tela que aparecerá é de edição
+    da coleção. Nesta tela, é possível alterar todas as informações inseridas nas etapas anteriores ou incluir novas informações. Clique em <Atualizar> para confirmar as alterações.
+    
+    \begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.9]{figura/Figura39.png}
+                \caption{Página de edição da coleção}
+            \label{Rotulo}
+        \end{figure}
+    
+\newpage
+
+    \subsection{Editar coleção}
+    
+    Passo 1: Para editar as configurações de uma coleção, entre na página da mesma e clique em <Editar>, disponível na caixa de “Ferramentas do administrador”.
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+     
+
+        
+
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+\newpage
+        \subsection{O que é o DSpace?} 
         Para que serve?
         DSpace é um software de código-fonte aberto que fornece facilidades para o gerenciamento de acervo digital, utilizado para implementação de repositórios institucionais. Suporta uma grande variedade de tipo de documentos, tais como: livros, teses e dissertações, fotografias, filmes, áudio, e outros. Os documentos são organizados em comunidades e coleções.
         O DSpace é disponibilizado livremente às instituições de investigação, sob a forma de um produto de código aberto, que pode ser livremente adaptado e expandido funcionalmente, nos termos da Licença BSD Open source licensx
@@ -456,17 +1079,34 @@ passwd dspace
 apt-get update && apt-get upgrade -y
         \end{minted}
    
-    \item \textbf{Execute o seguinte comando para Instalar o OpenJDK 7 ou OpenJDK8. Esteja ciente de que o Tomcat 7 usa o Java 1.6 para compilar JSPs por padrão . O Tomcat 8 usa o Java 1.7 para JSPs por padrão . Se você usar outro Container Servlet, consulte sua documentação sobre este assunto.}
-     
-        \begin{minted}{bash}
-apt-get install openjdk-7-jdk
-        \end{minted}\\
+    \item \textbf{Instale o Oracle-JDK}
+        \begin{enumerate}
+            \item O Java Development Kit (JDK), promove portabilidade das aplicações desenvolvidas nessa linguagem. Existem versões open source dessa ferramenta, como o Open-JDK, no entanto a compilação e execução do DSpace 6.x funciona com as versões Oracle-JDK 1.7.x e Oracle-JDK 1.8.x. Esta não é uma versão livre, mas ao aceitar sua licença, há a liberação do download, sem custos para o usuário. A Oracle-JDK 1.8.x pode ser baixada no seguinte endereço:
+            \singlespacing
+            https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+            
+            \begin{minted}{bash}
+mkdir /opt/jdk
+        \end{minted}
         
-        ou
-    
         \begin{minted}{bash}
-apt-get install openjdk-8-jdk
-        \end{minted}\\       
+tar -zxf jdk-8u221-linux-x64.tar.gz -C /opt/jdk
+        \end{minted}
+        
+        \item Feito isso, deve-se instalar o pacote, o que pode ser efetuado, estando ainda logado como root, por meio dos comandos:
+        
+        \begin{minted}{bash}
+update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_221/bin/
+java 100
+        \end{minted}
+        
+        \begin{minted}{bash}
+update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_221/bin/
+javac 100
+        \end{minted}
+
+        \end{enumerate}
+     
         
     \item \textbf{Instale o Apache Maven 3.0.5 ou superior (3.3.9 +) * (ferramenta de compilação Java)}\\
         \begin{enumerate}
@@ -681,7 +1321,7 @@ http://localhost:8080/jspui
 \newpage
 \section{Configurações básicas}
 \newpage
-      \subsection{Protocolo oai}\\
+      \subsection{Protocolo oai}
  
       É por meio do protocolo OAI-PMH que é feita a coleta dos Repositórios, Bibliotecas e Revistas para o Portal brasileiro de publicações científicas em acesso aberto (oasisbr) <http://oasisbr.ibict.br/vufind/>  e a Biblioteca Digital Brasileira de Teses e Dissertações (BDTD) <http://bdtd.ibict.br/vufind/>. Devem ser feito os devidos apontamentos neste arquivo para o perfeito funcionamento da url de coleta.\\
       
@@ -694,7 +1334,7 @@ http://localhost:8080/jspui
             \label{Rotulo}
           \end{figure}
         
-    \subsection{Ativação da url oai}\\
+    \subsection{Ativação da url oai}
    
     Em sua instalação padrão, o OAI está disponível dentro da pasta \textbf{[dspace-base]/webapps/oai/} da instalação do DSpace. E para sua ativação, deve-se seguir os seguintes passos:
         
@@ -711,7 +1351,7 @@ http://localhost:8080/jspui
         \end{enumerate}
         
 \newpage
-    \subsection{Sincronização automática da url OAI do repositório}\\
+    \subsection{Sincronização automática da url OAI do repositório}
     Ainda é necessário que se inclua alguns comandos na \textbf{contrab} do sistema, que é uma forma de agendar algumas tarefas que deverão ser executadas durante o período em que o uso do sistema pela comunidade não seja tão intenso. Esse procedimento pode ser efetuado, quando se está logado como root, se executa o comando: \textbf{crontab -e}. Após abertura do arquivo da crontab, devem ser adicionadas as seguintes linhas, informando o usuário dspace, os caminhos e os comandos no final do documento:
     
     \begin{minted}{bash}
@@ -776,6 +1416,8 @@ Passo 4: Em “Adicionar campo de metadado”, preencha os campos “Elemento”
         \end{figure}
 
 \newpage
+
+
 \section{Upgrade de versões}
 \newpage
 \subsection{Upgrade de versões}
@@ -823,8 +1465,8 @@ A atualização do DSpace precisa da criação de um banco de dados novo, não �
 %dropdb dspace6x
 %\end{minted}
 
+
 \begin{minted}{bash}
-createdb -E UNICODE dspace6x
 
 createdb --username=postgres --owner=dspace --encoding=UNICODE dspace6x
 
@@ -843,24 +1485,44 @@ cd /dspace-base/bin
 \end{minted}
 e execute o comando,
 \begin{minted}{bash}
-./dspace migrate database
+./dspace database migrate
 \end{minted}
 
 \newpage
-\subsection{Assetstore}
+\subsection{Arquivos do repositório Assetstore}
 
-\textbullet \hspace{6pt} Mova o arquivo backup da(s) assetstore(s) para dentro da pasta \textbf{dspace-6.x-base}, e lá execute o comando:
-
+O backup do arquivo dos repositório devem ser movidos para a pasta base do DSpace 6.3.
+\begin{minted}{bash}
+cp bkp_assetstore_DDMMAA.tar.gz /dspace-base/
+\end{minted}
+Em seguinda descompacte o backup,
 \begin{minted}{bash}
 tar -vzxf bkp_assetstore_DDMMAA.tar.gz
 \end{minted}
+renomei a pasta descompactada para assetstore
+\begin{minted}{bash}
+mv -R bkp_assetstore_DDMMAA assetstore 
+\end{minted}
+
 
 \subsection{Estatísticas}
 
+O backup da estatística do Solr
 \textbullet \hspace{6pt} Mova o arquivo backup da(s) assetstore(s) para dentro da pasta \textbf{dspace-6.x-base}, e lá execute o comando:
 
 \begin{minted}{bash}
 tar -vzxf bkp_solr_DDMMAA.tar.gz
+\end{minted}
+
+\subsection{Atualizar Sincronizar}
+
+O DSpace, depois de adicionado as pastas de backup, deve ser atualizado a instalação do respositório. Acesse a pasta de instalação do DSpace,
+\begin{minted}{bash}
+cd /home/dspace/repositorio-padrao-dspace-6/target/dspace-installer/
+\end{minted}
+em seguida execute o comando do Ant, agora com comando de update.
+\begin{minted}{bash}
+/home/dspace/apache-ant…/bin/ant update
 \end{minted}
 
 Para atualizar os índices execute, dentro da pasta dspace-6.x-base/bin, os comandos:
