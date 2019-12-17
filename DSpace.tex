@@ -375,9 +375,7 @@
 	
 		\vspace{0.75\baselineskip} % Whitespace above the title
 % ========== Title ===============	
-	{	\Huge Dspace\\ 
-			\vspace{4mm}
-		MANUAL  \\	}
+	{	\Huge Manual de Instalação, \\ Configuração e de Curadoria\\[0.5cm] de Metadados do DSpace 6}
 % ======================================
 		\vspace{0.75\baselineskip} % Whitespace below the title
 	\rule{13cm}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal rule
@@ -387,9 +385,14 @@
 % =================
 %	Information	
 % =================
-	{\large Leonard \\
-		\vspace*{1.2\baselineskip}
-	EMAIL: leonardcampelo@ibict.br} \\
+\textbf{\large Contribuidores:}\\[0.4cm]
+	{\large Leonard Richard Campelo}\\
+	{\large < leonardcampelo@ibict.br >} \\[0.4cm]
+	{\large Juliane Rosa}\\[0.4cm]
+	{\large Franciane Oliveira}\\[0.4cm]
+	{\large Alan Christian Oliveira}\\[0.4cm]
+	{\large Washington Luís Segundo}\\
+	{\large < washingtonsegundo@ibict.br >} \\[0.4cm]
 	\vfill
 
 \end{titlepage}
@@ -3596,16 +3599,32 @@ tar -cvzf bkp_solr_DDMMAA.tar.gz data
 
 A atualização do DSpace precisa da criação de um banco de dados novo, não é aconselhado utilizar o banco da versão anterior. Dessa forma, é necessário criar um novo banco de dados, \textbf{dspace6x}(nome ilustrativo) \ref{cap_BKP} 
 
+
 \begin{minted}{bash}
-su - dspace
+su - postgres
 \end{minted}
 
+Comando de exemplo para excluir o banco:
+\begin{minted}{bash}
+dropdb dspace
+\end{minted}
 
 \begin{minted}{bash}
 createdb --owner=dspace --encoding=UNICODE dspace6x
 
 psql dspace6x -c "CREATE EXTENSION pgcrypto;"
 \end{minted}
+
+\newpage
+
+Fazer a inclusão do novo banco no arquivo dspace.cfg e local.cfg
+
+\begin{figure}[!htp]
+                \centering
+                \includegraphics[scale=0.9]{figura/dspace-cfg.png}
+                \caption{inclusão do novo banco no dspace.cfg e local.cfg}
+            \label{Rotulo}
+          \end{figure}
 
 Acesse a pasta com o backup do banco de dados, \textbf{bkp $\_$ dspace4x $\_$ DDMMAA.sql}, e execute o comando de restauração para o bando \textbf{dspace6x}.
 
@@ -3650,6 +3669,10 @@ tar -vzxf bkp_solr_DDMMAA.tar.gz
 
 \subsection{Atualizar Sincronizar}
 
+Copie o dspace.cfg e loca.cfg do /dspace-base/config/ e substitua pelos que se encontram em
+\begin{minted}{bash}
+cd /home/dspace/repositorio-padrao-dspace-6/target/dspace-installer/config/
+\end{minted}
 O DSpace, depois de adicionado as pastas de backup, deve ser atualizado a instalação do respositório. Acesse a pasta de instalação do DSpace,
 \begin{minted}{bash}
 cd /home/dspace/repositorio-padrao-dspace-6/target/dspace-installer/
