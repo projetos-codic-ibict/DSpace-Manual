@@ -3311,6 +3311,7 @@ javac 100
         
         
     \item \textbf{ Instale o Apache Ant 1.8 ou posterior (ferramenta de compilação Java)}\\
+
          \begin{enumerate}
             \item A ferramenta que executa a tarefa de instalação do DSpace é o Apache-Ant. Para tornar esse software disponível para uso, basta realizar o download de seu pacote binário em http://ant.apache.org/ e descompactá-lo dentro da /home/dspace.\\
             
@@ -3429,7 +3430,7 @@ chown -R dspace:dspace /home/dspace/
             
         \item \textbf{Não esqueça de entrar no arquivo local.cfg. E Preencher o campo do dspace.install.dir como dspace-base}\\
             
-            \texttt{dspace.install.dir=/dspace-base}\\
+            \texttt{dspace.dir=/dspace-base}\\
         
         \item \textbf{Comandos para executar o maven:}\\
         
@@ -3617,6 +3618,21 @@ psql dspace6x -c "CREATE EXTENSION pgcrypto;"
 
 \newpage
 
+
+
+Acesse a pasta com o backup do banco de dados, \textbf{bkp $\_$ dspace4x $\_$ DDMMAA.sql}, e execute o comando de restauração para o bando \textbf{dspace6x}.
+
+
+\begin{minted}{bash}
+psql -d dspace6x -f bkp_dspace4x_DDMMAA.sql
+\end{minted}
+
+Trocar usuário de postgres para dspace
+
+\begin{minted}{bash}
+su - dspace
+\end{minted}
+
 Fazer a inclusão do novo banco no arquivo dspace.cfg e local.cfg
 
 \begin{figure}[!htp]
@@ -3625,13 +3641,6 @@ Fazer a inclusão do novo banco no arquivo dspace.cfg e local.cfg
                 \caption{inclusão do novo banco no dspace.cfg e local.cfg}
             \label{Rotulo}
           \end{figure}
-
-Acesse a pasta com o backup do banco de dados, \textbf{bkp $\_$ dspace4x $\_$ DDMMAA.sql}, e execute o comando de restauração para o bando \textbf{dspace6x}.
-
-
-\begin{minted}{bash}
-psql -d dspace6x -f bkp_dspace4x_DDMMAA.sql
-\end{minted}
 
 Finalizado a restauração do banco, acesse a pasta de binários do DSpace 6.3,
 \begin{minted}{bash}
@@ -3671,11 +3680,11 @@ tar -vzxf bkp_solr_DDMMAA.tar.gz
 
 Copie o dspace.cfg e loca.cfg do /dspace-base/config/ e substitua pelos que se encontram em
 \begin{minted}{bash}
-cd /home/dspace/repositorio-padrao-dspace-6/target/dspace-installer/config/
+cd /home/dspace/repositorio-padrao-dspace-6/dspace/target/dspace-installer/config/
 \end{minted}
 O DSpace, depois de adicionado as pastas de backup, deve ser atualizado a instalação do respositório. Acesse a pasta de instalação do DSpace,
 \begin{minted}{bash}
-cd /home/dspace/repositorio-padrao-dspace-6/target/dspace-installer/
+cd /home/dspace/repositorio-padrao-dspace-6/dspace/target/dspace-installer/
 \end{minted}
 em seguida execute o comando do Ant, agora com comando de update.
 \begin{minted}{bash}
