@@ -3590,7 +3590,7 @@ tar -cvzf bkp_assetstore_DDMMAA.tar.gz assetstore
 O backup das estatísticas pode ser feito, dentro da pasta dspace-4.x-base/solr/statistics, com:
 
 \begin{minted}{bash}
-tar -cvzf bkp_solr_statistics_DDMMAA.tar.gz data
+tar -cvzf bkp_solr_statdata_DDMMAA.tar.gz data
 \end{minted}
 
 \subsection{Restore}
@@ -3669,11 +3669,10 @@ mv -R bkp_assetstore_DDMMAA assetstore
 
 \subsection{Estatísticas}
 
-O backup da estatística do Solr
-\textbullet \hspace{6pt} Mova o arquivo backup da(s) assetstore(s) para dentro da pasta \textbf{dspace-6.x-base}, e lá execute o comando:
+Mova o arquivo backup das estatísticas do Solr para dentro da pasta \textbf{dspace-6.x-base/solr/statistics}, e lá execute o comando:
 
 \begin{minted}{bash}
-tar -vzxf bkp_solr_DDMMAA.tar.gz
+tar -vzxf bkp_solr_statdata_DDMMAA.tar.gz
 \end{minted}
 
 \subsection{Atualizar Sincronizar}
